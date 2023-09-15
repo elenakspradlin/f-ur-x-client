@@ -22,7 +22,7 @@ export const ItemsList = (props) => {
             {
                 items.map(item => {
                     return <section key={`item--${item.id}`} className="item">
-                        <div className="item__name"><Link to={`/items/${item.id}`}>{item.name}</Link></div>
+                        <div className="item__name"><Link to={`/items/${item.id}`}>{item.name}<img src={item.picture} alt=" " />{item.price}{item.url}</Link></div>
                     </section>
                 })
             }

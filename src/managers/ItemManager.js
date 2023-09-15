@@ -7,7 +7,7 @@ export const getItems = () => {
         .then(response => response.json())
 }
 
-export const createGame = (item) => {
+export const createItem = (item) => {
     return fetch("http://localhost:8000/items", {
         method: "POST",
         headers: {
