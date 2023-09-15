@@ -28,7 +28,7 @@ export const getItemById = (id) => {
         .then(response => response.json())
 }
 
-export const editItem = (id, item) => {
+export const updateItem = (id, item) => {
     return fetch(`http://localhost:8000/items/${id}`, {
         method: "PUT",
         headers: {
