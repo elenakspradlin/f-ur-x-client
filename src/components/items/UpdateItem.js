@@ -88,6 +88,7 @@ export const UpdateItem = () => {
                     evt.preventDefault()
 
                     const item = {
+                        id: currentItem.id,
                         name: currentItem.name,
                         picture: currentItem.picture,
                         price: currentItem.price,
@@ -95,7 +96,7 @@ export const UpdateItem = () => {
                     }
 
                     // Send POST request to your API
-                    updateItem(item)
+                    updateItem(item.id, item)
                         .then(() => navigate("/items"))
                 }}
                 className="btn btn-primary">Update</button>

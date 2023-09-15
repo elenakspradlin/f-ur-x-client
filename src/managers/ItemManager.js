@@ -38,3 +38,12 @@ export const updateItem = (id, item) => {
         body: JSON.stringify(item),
     })
 };
+
+export const deleteItem = (id) => {
+    return fetch(`http://localhost:8000/items/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("fuurx_token")}`
+        }
+    })
+}

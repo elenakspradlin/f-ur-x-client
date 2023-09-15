@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import { createItem } from '../../managers/ItemManager.js'
 
-
 export const ItemForm = () => {
     const navigate = useNavigate()
     const [currentItem, setCurrentItem] = useState({
