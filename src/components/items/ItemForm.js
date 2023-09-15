@@ -41,7 +41,7 @@ export const ItemForm = () => {
                 <div className="form-group">
                     <label htmlFor="maker">Picture </label>
                     <input
-                        type="file"
+                        type="text"
                         name="picture"
                         required autoFocus
                         className="form-control"
@@ -87,7 +87,7 @@ export const ItemForm = () => {
                         name: currentItem.name,
                         picture: currentItem.picture,
                         price: currentItem.price,
-                        URL: currentItem.url,
+                        url: currentItem.url,
                     }
 
                     // Send POST request to your API
