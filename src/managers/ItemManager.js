@@ -1,3 +1,15 @@
+//export const addItem = (item) => {
+//  return fetch("http://localhost:8000/useritems", {
+//    method: "POST",
+//   headers: {
+//    "Content-Type": "application/json",
+//  "Authorization": `Token ${localStorage.getItem("furx_token")}`
+//  },
+// body: JSON.stringify(item)
+// })
+// .then(response => response.json())
+//}
+
 export const getItems = () => {
     return fetch("http://localhost:8000/items", {
         headers: {
@@ -29,7 +41,7 @@ export const getItemById = (id) => {
 }
 
 export const updateItem = (id, item) => {
-    return fetch(`http://localhost:8000/items/${id}`, {
+    return fetch(`http://localhost:8000/items/${id}/update`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("furx_token")}`,
@@ -43,7 +55,7 @@ export const deleteItem = (id) => {
     return fetch(`http://localhost:8000/items/${id}`, {
         method: "DELETE",
         headers: {
-            "Authorization": `Token ${localStorage.getItem("fuurx_token")}`
+            "Authorization": `Token ${localStorage.getItem("furx_token")}`
         }
     })
 }
