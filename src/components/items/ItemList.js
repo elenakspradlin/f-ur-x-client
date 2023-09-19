@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { getItems, deleteItem, getItemById } from "../../managers/ItemManager";
+import { getItems, deleteItem, getItemById, addItemToRegistry } from "../../managers/ItemManager";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ItemDetail } from "./ItemDetail.js";
+import { getCurrentUser } from "../../managers/UserManager";
 
 export const ItemsList = () => {
     const [items, setItems] = useState([]);
     const navigate = useNavigate();
+
+    const [userId, setUserId] = useState(null);
+
+    useEffect(() => {
+        // You may fetch the user's ID from an authentication context or some other source
+        const user = getCurrentUser(); // Example function to get user info
+        setUserId(user.id); // Set the user ID
+    }, []);
 
     useEffect(() => {
         updateItems();
@@ -24,14 +33,15 @@ export const ItemsList = () => {
         }
     };
 
-    //  const handleAddItemToRegistry = (itemId) => {
-    //     const shouldAddItem = window.confirm("Are you sure you want to add this item to your registry?");
-    //    if (shouldAddItem) {
-    //     addItem(itemId).then(() => {
-    //       updateItems();
-    //   });
-    //  }
-    //  };
+    const handleAddItemToRegistry = (itemId) => {
+        const shouldAddItem = window.confirm("Are you sure you want to add this item to your registry?");
+        if (shouldAddItem) {
+            // Call your addItem function with the item ID and user ID
+            addItemToRegistry(itemId, userId).then(() => {
+                updateItems();
+            });
+        }
+    };
 
     return (
         <>
@@ -68,14 +78,14 @@ export const ItemsList = () => {
                             >
                                 Delete Item
                             </button>
-                            {<button
-                                className="btn btn-2 btn-sep icon-delete"
+                            <button
+                                className="btn btn-2 btn-sep icon-add-registry"
                                 onClick={() => {
                                     handleAddItemToRegistry(item.id);
                                 }}
                             >
                                 Add Item To Registry
-                            </button>}
+                            </button>
                             <article className="item-details">
                                 {/* Render any additional item details here */}
                             </article>
@@ -88,5 +98,3 @@ export const ItemsList = () => {
         </>
     );
 };
-
-

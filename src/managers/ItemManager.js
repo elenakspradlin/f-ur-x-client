@@ -1,14 +1,20 @@
-//export const addItem = (item) => {
-//  return fetch("http://localhost:8000/useritems", {
-//    method: "POST",
-//   headers: {
-//    "Content-Type": "application/json",
-//  "Authorization": `Token ${localStorage.getItem("furx_token")}`
-//  },
-// body: JSON.stringify(item)
-// })
-// .then(response => response.json())
-//}
+export const addItemToRegistry = (itemId, userId) => {
+    const itemData = {
+        itemId: itemId,
+        userId: userId,
+    };
+
+    return fetch("http://localhost:8000/useritems", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("furx_token")}`
+        },
+        body: JSON.stringify(itemData),
+    })
+        .then(response => response.json());
+};
+
 
 export const getItems = () => {
     return fetch("http://localhost:8000/items", {
