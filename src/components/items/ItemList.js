@@ -33,11 +33,11 @@ export const ItemsList = () => {
         }
     };
 
-    const handleAddItemToRegistry = (itemId) => {
+    const handleAddItemToRegistry = (item) => {
         const shouldAddItem = window.confirm("Are you sure you want to add this item to your registry?");
         if (shouldAddItem) {
             // Call your addItem function with the item ID and user ID
-            addItemToRegistry(itemId, userId).then(() => {
+            addItemToRegistry(item).then(() => {
                 updateItems();
             });
         }
@@ -80,8 +80,17 @@ export const ItemsList = () => {
                             </button>
                             <button
                                 className="btn btn-2 btn-sep icon-add-registry"
-                                onClick={() => {
-                                    handleAddItemToRegistry(item.id);
+                                onClick={evt => {
+                                    // Prevent form from being submitted
+                                    evt.preventDefault()
+
+                                    const userItem = {
+                                        item: item.id
+                                    }
+
+                                    // Send POST request to your API
+                                    addItemToRegistry(userItem)
+                                        .then(() => navigate("/useritems"))
                                 }}
                             >
                                 Add Item To Registry
@@ -92,7 +101,7 @@ export const ItemsList = () => {
                         </div>
                     </section>
                 ))}
-            </article>
+            </article >
 
             <ItemDetail />
         </>

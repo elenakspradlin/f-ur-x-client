@@ -1,8 +1,4 @@
-export const addItemToRegistry = (itemId, userId) => {
-    const itemData = {
-        itemId: itemId,
-        userId: userId,
-    };
+export const addItemToRegistry = (item) => {
 
     return fetch("http://localhost:8000/useritems", {
         method: "POST",
@@ -10,7 +6,7 @@ export const addItemToRegistry = (itemId, userId) => {
             "Content-Type": "application/json",
             "Authorization": `Token ${localStorage.getItem("furx_token")}`
         },
-        body: JSON.stringify(itemData),
+        body: JSON.stringify(item),
     })
         .then(response => response.json());
 };

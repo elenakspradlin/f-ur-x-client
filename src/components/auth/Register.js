@@ -8,6 +8,8 @@ export const Register = () => {
     const lastName = useRef()
     const username = useRef()
     const password = useRef()
+    const bio = useRef()
+    const day_of_breakup = useRef()
     const verifyPassword = useRef()
     const passwordDialog = useRef()
     const navigate = useNavigate()
@@ -20,7 +22,9 @@ export const Register = () => {
                 "username": username.current.value,
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
-                "password": password.current.value
+                "password": password.current.value,
+                "bio": bio.current.value,
+                "day_of_breakup": day_of_breakup.current.value
             }
 
             registerUser(newUser)
@@ -64,6 +68,15 @@ export const Register = () => {
                 <fieldset>
                     <label htmlFor="verifyPassword"> Verify Password </label>
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="bio">Bio</label>
+                    <input ref={bio} type="text" name="bio" className="form-control" placeholder="bio" required />
+
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="dateOfBreakup">Date of Breakup</label>
+                    <input ref={day_of_breakup} type="date" name="dateOfBreakup" className="form-control" required />
                 </fieldset>
                 <fieldset style={{
                     textAlign: "center"
