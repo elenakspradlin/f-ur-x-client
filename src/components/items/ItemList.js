@@ -20,8 +20,8 @@ export const ItemsList = () => {
         updateItems();
     }, []);
 
-    const updateItems = () => {
-        getItems().then((data) => setItems(data));
+    const updateItems = (itemId) => {
+        getItems(itemId).then((data) => setItems(data));
     };
 
     const handleDeleteItem = (itemId) => {
@@ -65,7 +65,7 @@ export const ItemsList = () => {
                             <button
                                 className="btn btn-2 btn-sep icon-create"
                                 onClick={() => {
-                                    navigate({ pathname: `/items/${item.id}/update` });
+                                    navigate({ pathname: `/items/update/${item.id}` });
                                 }}
                             >
                                 Update Item

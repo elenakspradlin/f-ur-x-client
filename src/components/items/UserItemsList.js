@@ -1,75 +1,65 @@
 import React, { useEffect, useState } from "react";
-import { getItems, deleteItem, getItemById, addItemToRegistry } from "../../managers/ItemManager";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { ItemDetail } from "./ItemDetail.js";
+import { getUserItems, deleteUserItem } from "../../managers/ItemManager";
+import { Link, useNavigate } from "react-router-dom";
+import { UserItemDetail } from "./UserItemDetails";
 import { getCurrentUser } from "../../managers/UserManager";
 
 export const UserItemsList = () => {
-    const [items, setItems] = useState([]);
+    const [userItems, setUserItems] = useState([]);
     const navigate = useNavigate();
 
-    const [userId, setUserId] = useState(null);
-
     useEffect(() => {
-        // You may fetch the user's ID from an authentication context or some other source
-        const user = getCurrentUser(); // Example function to get user info
-        setUserId(user.id); // Set the user ID
+        const user = getCurrentUser();
+        getUserItems(user.id).then((data) => setUserItems(data));
     }, []);
 
-    useEffect(() => {
-        updateItems();
-    }, []);
-
-    const updateItems = () => {
-        getItems().then((data) => setItems(data));
-    };
-
-
-    const handleDeleteItem = (itemId) => {
+    const handleDeleteUserItem = (itemId) => {
         const shouldDelete = window.confirm("Are you sure you want to delete this item?");
         if (shouldDelete) {
-            deleteItem(itemId).then(() => {
-                updateItems();
+            deleteUserItem(itemId).then(() => {
+                // After deletion, update the user items list
+                const user = getCurrentUser();
+                getUserItems(user.id).then((data) => setUserItems(data));
             });
         }
     };
 
     return (
         <>
-            <article className="items">
-                {items.map((item) => (
-                    <section key={`item--${item.id}`} className="item">
-                        <div className="item__name">
-                            <Link to={`${item.url}`}>
-                                {item.name}
-                                <img src={item.picture} alt=" " />
-                                {item.price}
+            <article className="user_items">
+                {userItems.map((userItem) => (
+                    <section key={`userItem--${userItem.id}`} className="user_item">
+                        <div className="user_item__name">
+                            <Link to={`${userItem.item.url}`}>
+                                {userItem.item.name}
+                                <img src={userItem.item.picture} alt=" " />
+                                {userItem.item.price}
                             </Link>
                             <button
                                 className="btn btn-2 btn-sep icon-create"
                                 onClick={() => {
-                                    navigate({ pathname: `/items/${item.id}/update` });
+                                    navigate({ pathname: `/useritems/${userItem.id}/update` });
                                 }}
                             >
-                                Update Item
+                                Update User Item
                             </button>
                             <button
                                 className="btn btn-2 btn-sep icon-delete"
                                 onClick={() => {
-                                    handleDeleteItem(item.id);
+                                    handleDeleteUserItem(userItem.id);
                                 }}
                             >
-                                Delete Item
+                                Delete User Item
                             </button>
-                            <article className="item-details">
+                            <article className="user-item-details">
                                 {/* Render any additional item details here */}
                             </article>
                         </div>
                     </section>
                 ))}
-            </article >
+            </article>
 
-            <ItemDetail />
+            <UserItemDetail />
         </>
     );
 };
