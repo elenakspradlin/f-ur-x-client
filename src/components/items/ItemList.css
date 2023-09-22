@@ -1,0 +1,124 @@
+/* Center h1 and h2 */
+h1,
+h2 {
+    text-align: center;
+}
+
+/* Resize and center the image */
+img {
+    display: block;
+    margin: 0 auto;
+    /* Center the image horizontally */
+    max-width: 100%;
+    /* Resize the image without distorting it */
+}
+
+
+.items-container {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    height: 100vh;
+    background-position: left;
+    background-size: 25%;
+    background-repeat: repeat;
+}
+
+/* Grid layout for individual items */
+.items-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns in the grid */
+    gap: 20px;
+    /* Gap between items */
+}
+
+/* Style for each individual item */
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    /* Border around each item */
+}
+
+/* Style for the content within each individual item */
+.item-content {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* Stack buttons vertically */
+    align-items: center;
+    /* Center items horizontally */
+}
+
+/* Image styling */
+.resized-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* To remove extra bottom margin */
+    margin: 0 auto;
+    /* Center the image horizontally */
+}
+
+/* Name styling */
+.item-name {
+    font-weight: bold;
+}
+
+/* Price styling */
+.item-price {
+    font-weight: bold;
+    color: #ff5722;
+    /* Adjust the color as needed */
+    margin: 5px 0;
+}
+
+.btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    /* Button background color */
+    color: #fff;
+    /* Button text color */
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    /* Display as block-level elements */
+    /* Adjust the top margin as needed */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    /* Hover background color */
+}
+
+.item-buttons button {
+    padding: 8px 16px;
+    align-items: center;
+    cursor: pointer;
+    background-color: #3a1414;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    /* Adjust the top margin between buttons */
+}
+
+/* Center-align and position the button at the bottom of the page */
+.btn-add-inspiration {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+}

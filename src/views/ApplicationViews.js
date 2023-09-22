@@ -8,6 +8,7 @@ import { ItemForm } from "../components/items/ItemForm"
 import { UpdateUserItem } from "../components/items/UpdateUserItem"
 import { UpdateItem } from "../components/items/UpdateItem"
 import { ItemDetail } from "../components/items/ItemDetail"
+import { AboutPage } from "../components/about/About"
 
 
 export const ApplicationViews = () => {
@@ -21,6 +22,7 @@ export const ApplicationViews = () => {
             <Route path="/items/:id" element={<ItemDetail />} />
             <Route path="/items/new" element={<ItemForm />} />
             <Route path="/items/update/:id" element={<UpdateItem />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route element={<Authorized />}>
                 {/* Add Routes here */}
             </Route>

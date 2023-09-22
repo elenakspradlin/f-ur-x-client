@@ -3,6 +3,7 @@ import { getItems, deleteItem, getItemById, addItemToRegistry } from "../../mana
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ItemDetail } from "./ItemDetail.js";
 import { getCurrentUser } from "../../managers/UserManager";
+import "./ItemList.css"
 
 export const ItemsList = () => {
     const [items, setItems] = useState([]);
@@ -45,65 +46,74 @@ export const ItemsList = () => {
 
     return (
         <>
-            <article className="items">
-                <button
-                    className="btn btn-2 btn-sep icon-create"
-                    onClick={() => {
-                        navigate({ pathname: "/items/new" });
-                    }}
-                >
-                    Register New Item
-                </button>
-                {items.map((item) => (
-                    <section key={`item--${item.id}`} className="item">
-                        <div className="item__name">
-                            <Link to={`${item.url}`}>
-                                {item.name}
-                                <img src={item.picture} alt=" " />
-                                {item.price}
-                            </Link>
-                            <button
-                                className="btn btn-2 btn-sep icon-create"
-                                onClick={() => {
-                                    navigate({ pathname: `/items/update/${item.id}` });
-                                }}
-                            >
-                                Update Item
-                            </button>
-                            <button
-                                className="btn btn-2 btn-sep icon-delete"
-                                onClick={() => {
-                                    handleDeleteItem(item.id);
-                                }}
-                            >
-                                Delete Item
-                            </button>
-                            <button
-                                className="btn btn-2 btn-sep icon-add-registry"
-                                onClick={evt => {
-                                    // Prevent form from being submitted
-                                    evt.preventDefault()
+            <h1>REGISTRY INSPIRATION BOARD!</h1>
+            <h2>See what other users have added</h2>
+            <img src="https://i.pinimg.com/564x/65/f9/52/65f95294285dfcd44d99864d9ed6982c.jpg"></img>
+            <button
+                className="btn btn-2 btn-sep icon-create btn-add-inspiration"
+                onClick={() => {
+                    navigate({ pathname: "/items/new" });
+                }}
+            >
+                Add to the Community's Registry Inspiration!
+            </button>
 
-                                    const userItem = {
-                                        item: item.id
-                                    }
+            <main className="items-container">
+                <div className="items-grid">
+                    {items.map((item) => (
+                        <article key={`item--${item.id}`} className="item">
+                            <div className="item-content">
+                                <Link to={`${item.url}`}>
+                                    <img
+                                        className="resized-image"
+                                        src={item.picture}
+                                        alt={item.name}
+                                        style={{ maxWidth: "30%", height: "auto" }}
+                                    />
+                                </Link>
+                                <h3 className="item-name">{item.name}</h3>
+                                <div className="item-price">{item.price}</div>
 
-                                    // Send POST request to your API
-                                    addItemToRegistry(userItem)
-                                        .then(() => navigate("/useritems"))
-                                }}
-                            >
-                                Add Item To Registry
-                            </button>
-                            <article className="item-details">
-                                {/* Render any additional item details here */}
-                            </article>
-                        </div>
-                    </section>
-                ))}
-            </article >
+                                <div className="item-buttons">
+                                    <button
+                                        onClick={() => {
+                                            navigate({ pathname: `/items/update/${item.id}` });
+                                        }}
+                                        className="btn btn-2 btn-sep icon-create"
+                                    >
+                                        Update Item
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            handleDeleteItem(item.id);
+                                        }}
+                                        className="btn btn-2 btn-sep icon-delete"
+                                    >
+                                        Delete Item
+                                    </button>
+                                    <button
+                                        onClick={(evt) => {
+                                            evt.preventDefault();
 
+                                            const userItem = {
+                                                item: item.id
+                                            };
+
+                                            addItemToRegistry(userItem).then(() => navigate("/useritems"));
+                                        }}
+                                        className="btn btn-2 btn-sep icon-add-registry"
+                                    >
+                                        Add Item To My Registry
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                    ))}
+                </div>
+            </main>
             <ItemDetail />
         </>
     );
+
 };

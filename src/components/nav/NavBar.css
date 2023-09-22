@@ -1,10 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Lobster&family=Press+Start+2P&family=Tourney&display=swap');
+
 .navbar {
+    background-color: #EADFC9;
+    color: #EADFC9;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 4px solid #0F0E0A;
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+}
+
+.navbar__logout {
+    margin-left: auto;
+}
+
+.navbar__link {
+    font-family: 'Lobster';
+    color: #CD6D5B;
+    font-size: 16px;
+    font-weight: bold;
 }
