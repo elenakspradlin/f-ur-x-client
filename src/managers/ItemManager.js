@@ -20,17 +20,28 @@ export const getUserItems = () => {
         .then(response => response.json())
 }
 
-export const getUserItemById = (id) => {
+export const getUserItemById = (id, item) => {
     return fetch(`http://localhost:8000/useritems/${id}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("furx_token")}`
-        }
+        },
+        body: JSON.stringify(item)
     })
         .then(response => response.json())
 }
 
-export const updateUserItem = (id, item) => {
-    return fetch(`http://localhost:8000/useritems/${id}/update`, {
+export const getItemById = (id, item) => {
+    return fetch(`http://localhost:8000/items/${id}`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("furx_token")}`
+        },
+        body: JSON.stringify(item)
+    })
+        .then(response => response.json())
+}
+
+export const changeUserItem = (id, item) => {
+    return fetch(`http://localhost:8000/useritems/${id}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("furx_token")}`,
@@ -63,16 +74,6 @@ export const createItem = (item) => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("furx_token")}`
-        },
-        body: JSON.stringify(item)
-    })
-        .then(response => response.json())
-}
-
-export const getItemById = (id, item) => {
-    return fetch(`http://localhost:8000/items/${id}`, {
-        headers: {
             "Authorization": `Token ${localStorage.getItem("furx_token")}`
         },
         body: JSON.stringify(item)

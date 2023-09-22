@@ -18,7 +18,7 @@ export const ApplicationViews = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/items" element={<ItemsList />} />
             <Route path="/useritems" element={<UserItemsList />} />
-            <Route path="/useritems/:id/update" element={<UpdateUserItem />} />
+            <Route path="/useritems/update/:id" element={<UpdateUserItem />} />
             <Route path="/items/:id" element={<ItemDetail />} />
             <Route path="/items/new" element={<ItemForm />} />
             <Route path="/items/update/:id" element={<UpdateItem />} />

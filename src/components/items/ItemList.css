@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Lobster&family=Press+Start+2P&family=Tourney&display=swap');
+
+body {
+    background: linear-gradient(to bottom, #CC7178, #F3E1DD);
+}
+
 /* Center h1 and h2 */
 h1,
 h2 {
@@ -10,6 +17,7 @@ img {
     margin: 0 auto;
     /* Center the image horizontally */
     max-width: 100%;
+    margin-bottom: 100px;
     /* Resize the image without distorting it */
 }
 
@@ -81,7 +89,7 @@ img {
 .btn {
     padding: 8px 16px;
     cursor: pointer;
-    background-color: #007bff;
+    background-color: #89023E;
     /* Button background color */
     color: #fff;
     /* Button text color */
@@ -90,6 +98,7 @@ img {
     transition: background-color 0.3s;
     display: flex;
     align-items: center;
+    font-family: 'IBM Plex Mono', sans-serif;
     /* Display as block-level elements */
     /* Adjust the top margin as needed */
 }
@@ -109,6 +118,8 @@ img {
     border-radius: 4px;
     transition: background-color 0.3s;
     margin-top: 10px;
+    font-family: 'IBM Plex Mono', sans-serif;
+
     /* Adjust the top margin between buttons */
 }
 
@@ -121,4 +132,5 @@ img {
     bottom: 20px;
     left: 0;
     right: 0;
+    font-family: 'IBM Plex Mono', sans-serif;
 }

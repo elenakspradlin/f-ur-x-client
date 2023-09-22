@@ -110,9 +110,10 @@ export const ItemsList = () => {
                         </article>
 
                     ))}
+                    <ItemDetail />
                 </div>
             </main>
-            <ItemDetail />
+
         </>
     );
 

@@ -1,23 +1,19 @@
-import { useState, useEffect } from "react"
-import { useNavigate, useParams } from 'react-router-dom'
-import { updateUserItem, getUserItemById, changeItemState } from "../../managers/ItemManager";
-
-
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { changeUserItem, getUserItemById, changeUserItemState } from "../../managers/ItemManager";
 
 export const UpdateUserItem = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { id } = useParams();
-    const [currentUserItem, setCurrentUserItem] = useState({})
+    const [currentUserItem, setCurrentUserItem] = useState({});
 
     useEffect(() => {
-        getUserItemById(id)
-            .then((data) => {
-                setCurrentUserItem(data);
-            });
+        getUserItemById(id).then((data) => {
+            setCurrentUserItem(data);
+        });
     }, [id]);
 
     const changeUserItemState = (event) => {
-        // TODO: Complete the onChange function
         const { name, value } = event.target;
         setCurrentUserItem((prevState) => ({
             ...prevState,
@@ -30,24 +26,26 @@ export const UpdateUserItem = () => {
             <h2 className="currentUserItemForm__title">Update User Item</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Name: </label>
+                    <label htmlFor="name">Name: </label>
                     <input
                         type="text"
                         name="name"
-                        required autoFocus
+                        required
+                        autoFocus
                         className="form-control"
-                        value={currentUserItem.item?.name}
+                        value={currentUserItem.name}
                         onChange={changeUserItemState}
                     />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="maker">Picture </label>
+                    <label htmlFor="picture">Picture </label>
                     <input
                         type="text"
                         name="picture"
-                        required autoFocus
+                        required
+                        autoFocus
                         className="form-control"
                         value={currentUserItem.picture}
                         onChange={changeUserItemState}
@@ -60,7 +58,8 @@ export const UpdateUserItem = () => {
                     <input
                         type="text"
                         name="price"
-                        required autoFocus
+                        required
+                        autoFocus
                         className="form-control"
                         value={currentUserItem.price}
                         onChange={changeUserItemState}
@@ -73,7 +72,8 @@ export const UpdateUserItem = () => {
                     <input
                         type="text"
                         name="url"
-                        required autoFocus
+                        required
+                        autoFocus
                         className="form-control"
                         value={currentUserItem.url}
                         onChange={changeUserItemState}
@@ -81,27 +81,26 @@ export const UpdateUserItem = () => {
                 </div>
             </fieldset>
 
-
-            <button type="submit"
-                onClick={evt => {
-                    // Prevent form from being submitted
-                    evt.preventDefault()
+            <button
+                type="submit"
+                onClick={(evt) => {
+                    evt.preventDefault();
 
                     const userItem = {
-                        id: currentUserItem.id, // Corrected variable name
-                        name: currentUserItem.name, // Assuming you want to update all fields
+                        id: currentUserItem.id,
+                        name: currentUserItem.name,
                         picture: currentUserItem.picture,
                         price: currentUserItem.price,
                         url: currentUserItem.url,
-                        profile: currentUserItem.profile
-                    }
+                        profile: currentUserItem.profile,
+                    };
 
-                    // Send PUT request to your API (assuming updateUserItem is for updating)
-                    updateUserItem(userItem.id, userItem)
-                        .then(() => navigate("/useritems"))
+                    changeUserItem(userItem.id, userItem).then(() => navigate("/useritems"));
                 }}
-                className="btn btn-primary">Update User Item</button>
-
+                className="btn btn-primary"
+            >
+                Update User Item
+            </button>
         </form>
-    )
-}
+    );
+};

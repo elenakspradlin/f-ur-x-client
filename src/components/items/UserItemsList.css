@@ -1,0 +1,101 @@
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Lobster&family=Press+Start+2P&family=Tourney&display=swap');
+
+/* Apply the background gradient */
+body {
+    background: linear-gradient(to bottom, #CC7178, #F3E1DD);
+}
+
+/* Center h1 and h2 */
+h1,
+h2 {
+    text-align: center;
+}
+
+/* Resize and center the image */
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    margin-bottom: 100px;
+}
+
+/* Apply styles to the user items container */
+.user-items-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-position: left;
+    background-image: url('https://img.ifunny.co/images/9ca2e4f08c8c307e80ff540aebff15006e6462ad85d54825cbea539f7053681a_1.jpg');
+    background-size: 25%;
+    background-repeat: repeat;
+    padding: 20px;
+}
+
+/* Grid layout for individual user items */
+.user-items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Style for each individual user item */
+.user-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style for the content within each individual user item */
+.user-item-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Image styling for user items */
+.resized-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Name styling for user items */
+.item-name {
+    font-weight: bold;
+}
+
+/* Price styling for user items */
+.item-price {
+    font-weight: bold;
+    color: #ff5722;
+    margin: 5px 0;
+}
+
+/* Button styling for user items */
+.user-item-content .btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #89023E;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    font-family: 'IBM Plex Mono', sans-serif;
+    margin: 10px 0;
+}
+
+/* Center-align and position the button at the bottom of the user items container */
+.user-items-container .btn-add-inspiration {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'IBM Plex Mono', sans-serif;
+}
