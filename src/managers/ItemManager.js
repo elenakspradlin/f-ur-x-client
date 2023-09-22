@@ -51,6 +51,17 @@ export const changeUserItem = (id, item) => {
     })
 };
 
+export const changeItem = (id, item) => {
+    return fetch(`http://localhost:8000/items/${id}`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("furx_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(item),
+    })
+};
+
 export const deleteUserItem = (id) => {
     return fetch(`http://localhost:8000/useritems/${id}`, {
         method: "DELETE",
@@ -80,17 +91,6 @@ export const createItem = (item) => {
     })
         .then(response => response.json())
 }
-
-export const changeItem = (id, item) => {
-    return fetch(`http://localhost:8000/items/${id}`, {
-        method: "PUT",
-        headers: {
-            "Authorization": `Token ${localStorage.getItem("furx_token")}`,
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(item),
-    })
-};
 
 export const deleteItem = (id) => {
     return fetch(`http://localhost:8000/items/${id}`, {

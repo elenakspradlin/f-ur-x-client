@@ -50,38 +50,38 @@ export const Register = () => {
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Register an account</h1>
                 <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
+                    <label htmlFor="firstName"> <h3>First Name</h3> </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
+                    <label htmlFor="lastName"> <h3>Last Name</h3> </label>
                     <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="inputUsername">Username</label>
+                    <label htmlFor="inputUsername"><h3>Username</h3></label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="inputPassword"> Password </label>
+                    <label htmlFor="inputPassword"><h3>Password </h3> </label>
                     <input ref={password} type="password" name="password" className="form-control" placeholder="Password" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="verifyPassword"> Verify Password </label>
+                    <label htmlFor="verifyPassword"> <h3>Verify Password </h3></label>
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="bio">Bio</label>
+                    <label htmlFor="bio"><h3>Bio</h3></label>
                     <input ref={bio} type="text" name="bio" className="form-control" placeholder="bio" required />
 
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="dateOfBreakup">Date of Breakup</label>
+                    <label htmlFor="dateOfBreakup"><h3>Date of Breakup</h3></label>
                     <input ref={day_of_breakup} type="date" name="dateOfBreakup" className="form-control" required />
                 </fieldset>
                 <fieldset style={{
                     textAlign: "center"
                 }}>
-                    <button className="btn btn-1 btn-sep icon-send" type="submit"><Link to="/about">Register</Link></button>
+                    <button className="btn" type="submit"><Link to="/about">Register</Link></button>
                 </fieldset>
             </form>
             <section className="link--register">

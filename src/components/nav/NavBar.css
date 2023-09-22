@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Lobster&family=Press+Start+2P&family=Tourney&display=swap');
 
 .navbar {
-    background-color: #EADFC9;
-    color: #EADFC9;
+    background-color: #FFD9DA;
+    color: #FFD9DA;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     padding: 10px;
-    border-bottom: 4px solid #0F0E0A;
+    border-bottom: 4px solid #89023E
 }
 
 .navbar__item {
@@ -20,9 +20,15 @@
     margin-left: auto;
 }
 
-.navbar__link {
-    font-family: 'Lobster';
-    color: #CD6D5B;
-    font-size: 16px;
+.navbar__link,
+.nav-link {
+    text-decoration: none;
     font-weight: bold;
+    color: #89023E;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-family: 'IBM Plex Mono', sans-serif;
+    display: flex;
+    align-items: center;
 }

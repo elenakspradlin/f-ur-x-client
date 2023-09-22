@@ -22,7 +22,7 @@ export const NavBar = () => {
                                 localStorage.removeItem("furx_token")
                                 navigate('/login')
                             }}
-                        >Logout</button>
+                        >Log Off, Babe</button>
                     </li> :
                     <>
                         <li className="nav-item">

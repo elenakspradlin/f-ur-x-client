@@ -47,6 +47,23 @@ h5 {
     color: #0F0E0A;
 }
 
+.btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #89023E;
+    /* Button background color */
+    color: #fff;
+    /* Button text color */
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    font-family: 'IBM Plex Mono', sans-serif;
+    /* Display as block-level elements */
+    /* Adjust the top margin as needed */
+}
+
 p {
     margin-bottom: 1.5em;
 }
